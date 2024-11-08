@@ -1,0 +1,50 @@
+.beans {
+  pointer-events: none;
+  display: block;
+  position: absolute;
+  width: 250px;
+  height: 410px;
+  margin: auto;
+  top: -150px;
+  left: 0px;
+  right: 0;
+  z-index: 3;
+  transform: scale(0.85) translateY(-20px);
+  opacity: 1;
+  transition: all 2s ease-in, transform 5s ease;
+  transform: scale(1);
+  overflow: hidden;
+
+  --mask: linear-gradient(
+      0deg,
+      rgba(213, 202, 189, 0) 00%,
+      rgba(229, 222, 214, 1) 21%,
+      rgba(255, 255, 255, 1) 51%,
+      rgba(255, 255, 255, 1) 86%,
+      rgba(255, 255, 255, 0) 100%
+    )
+    repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
+.brew .beans,
+.start .beans,
+.start .beans .bean {
+  transition: none;
+  opacity: 0;
+}
+
+.movejug .beans {
+  opacity: 1;
+}
+
+.beans .bean {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  transition: 3s;
+  left: 0;
+  top: 0;
+  transform: rotate(0deg);
+}

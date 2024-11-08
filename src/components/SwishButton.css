@@ -1,0 +1,71 @@
+.swish {
+  background: #6d4d38;
+  display: flex;
+  align-items: center;
+  padding: 15px 70px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: fit-content;
+  margin: auto;
+  color: white;
+  transition: all 1s;
+  box-shadow: #967259ad 8px 8px 20px 0px;
+}
+
+.show-active.swish {
+  background: #967259;
+}
+
+.swish-fill {
+  position: absolute;
+  font-size: 16px;
+  transition: clip-path 1s ease;
+}
+
+.start {
+  clip-path: inset(0 0 0 0%);
+}
+
+.show-active .start {
+  clip-path: inset(0 0 0 100%);
+}
+
+.end {
+  position: relative;
+  clip-path: inset(0 100% 0 0);
+  text-align: left;
+}
+
+.show-active .end {
+  clip-path: inset(0 -0% 0 0);
+}
+
+.slide {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 10px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: #502719;
+
+  transition: all 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 29px;
+  color: white;
+}
+
+.show-active .slide {
+  background-color: #c4a48c;
+  left: 77%;
+}
+
+.slide-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

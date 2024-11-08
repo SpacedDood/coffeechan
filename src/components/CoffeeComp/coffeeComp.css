@@ -1,0 +1,168 @@
+.coffeeCont {
+  position: relative;
+}
+
+.coffeeComp {
+  margin-top: 100px;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.machine {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  right: 0;
+  z-index: 1;
+  transition: 1s;
+  transform: scale(0.85) translateY(-20px);
+  opacity: 1;
+}
+
+.movejug .machine,
+.brewbeans .machine,
+.brew .machine {
+  transform: scale(0.75) translateY(10px);
+  opacity: 0;
+}
+
+.jug {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transition: 1s;
+  transform: scale(0.55) translateY(55px);
+}
+
+.jug img {
+  opacity: 0;
+}
+.movejug .jug,
+.brewbeans .jug,
+.brew .jug {
+  transform: scale(1) translateY(0px);
+}
+
+@keyframes jugZoom {
+  from {
+    left: -80px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+.coffeeMask {
+  background-image: url('/src/components/CoffeeComp/svg/coffeeJug.svg');
+  background-repeat: no-repeat;
+  mask-image: url('/src/components/CoffeeComp/svg/coffeeJug.svg');
+  mask-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+}
+
+.coffeeLevel {
+  background: #7e3e28d9;
+  height: 0px;
+  width: 200%;
+  position: absolute;
+  bottom: 0;
+  z-index: 6;
+  transition: 1s;
+  backdrop-filter: invert(1);
+  --size: 20px;
+  --m: 2;
+  --p: calc(var(--m) * var(--size));
+  --R: calc(var(--size) * sqrt(var(--m) * var(--m) + 1));
+  mask: radial-gradient(
+        var(--R) at 50% calc(var(--size) + var(--p)),
+        #000 99%,
+        #0000 101%
+      )
+      calc(50% - 2 * var(--size)) 0 / calc(4 * var(--size)) 100%,
+    radial-gradient(var(--R) at 50% calc(-1 * var(--p)), #0000 99%, #000 101%)
+      50% var(--size) / calc(4 * var(--size)) 100% repeat-x;
+
+  animation: coffeeMove 2s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.43, 0.31, 0.59, 0.68);
+}
+
+@keyframes coffeeMove {
+  from {
+    left: -80px;
+    bottom: 0px;
+  }
+  44% {
+    bottom: -3px;
+  }
+  to {
+    left: 0px;
+    bottom: 0px;
+  }
+}
+
+.coffeePercent {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  font-size: 50px;
+  text-align: center;
+  color: #967259;
+  z-index: 7;
+  opacity: 0;
+  transition: 1s;
+}
+
+.brew .coffeePercent {
+  opacity: 1;
+}
+
+.bubble {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  bottom: -131px;
+  left: 0px;
+  right: 0;
+  margin: auto;
+  border: 1px solid #967259;
+  border-radius: 100px;
+  z-index: 20;
+
+  animation: bubbleMove 2s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.43, 0.31, 0.59, 0.68);
+}
+
+@keyframes bubbleMove {
+  from {
+    left: -20px;
+    bottom: -270px;
+  }
+  44% {
+    left: -180px;
+  }
+  77% {
+    left: -220px;
+  }
+  to {
+    left: -200px;
+    bottom: -5px;
+  }
+}

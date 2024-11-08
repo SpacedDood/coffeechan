@@ -1,0 +1,67 @@
+/*html,
+body {
+  display: block;
+  width: 100%;
+  height: 100%;
+}*/
+
+.fancyBG {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -10;
+}
+
+.bg1 {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #865e4f;
+}
+
+.bg2 {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #7a5345;
+  --mask: radial-gradient(
+        47.5px at 50% calc(100% + 31.5px),
+        #0000 calc(99% - 8px),
+        #000 calc(101% - 8px) 99%,
+        #0000 101%
+      )
+      calc(50% - 60px) calc(50% - 19px + 0.5px) / 120px 38px,
+    radial-gradient(
+        47.5px at 50% -31.5px,
+        #0000 calc(99% - 8px),
+        #000 calc(101% - 8px) 99%,
+        #0000 101%
+      )
+      50% calc(50% + 19px) / 120px 38px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
+.bg-over {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(236, 224, 209, 0) 30%,
+    rgba(236, 224, 209, 0) 70%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1000;
+}
